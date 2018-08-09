@@ -1,0 +1,19 @@
+{
+    "files.exclude": 
+    {
+        "**/*.pyc": true,
+        "**/*.map": true,
+        "**/*__pycache__": true,
+        "**/**/*__pycache__": true,
+        "**/**/**/*__pycache__": true,
+        "**/**/**/**/*__pycache__": true,
+        "**/adivawebsite-v1.1": true,
+        "**/.git":true,
+        "**/*.idea":true,
+        "**/*.vscode":true
+    },
+    "editor.fontSize": 14,
+    "editor.lineHeight": 19,
+    "editor.minimap.enabled": true,
+    "python.linting.enabled": true
+}   

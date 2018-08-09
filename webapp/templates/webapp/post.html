@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+
+
+<head>
+    <title>Details &#8211; Adiva Graphics</title>
+    <link rel="icon" href="{% static 'framework/img/FAV.png' %}" type="image/gif/svg" sizes="16x16">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'web/framework/css/bootstrap.min.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/style.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/contact-form.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/vc.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/font-awesome/css/font-awesome.min.css' %}" type="text/css" media="all"
+    />
+    <link rel="stylesheet" href="{% static 'web/framework/css/elegant-font/style.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/wocommerce.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/page/post.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/lightcase/lightcase.css' %}" type="text/css" media="all" />
+    <script type="text/javascript" src="{% static 'web/framework/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/js/jquery-migrate.min.js' %}"></script>
+    <!--[if lt IE 9]>
+<script type="text/javascript" src="framework/js/html5min.js"></script>
+<![endif]-->
+</head>
+
+<body class="woo_active standard_page dark_bg have_featured_image">
+    <div class="header">
+        <div class="logo_holder">
+            <a href="{% url 'index'%}">
+                <img class="logo_for_dark_bg img-fluid" src="{% static 'web/framework/img/logo.png' %}" alt="Adiva Graphics" />
+                <!-- <img class="logo_for_light_bg img-fluid" src="framework/img/logo.png" alt="Adiva Graphics" /> -->
+            </a>
+        </div>
+
+        <!-- .site-header-social-menu -->
+    </div>
+    <div class="page_featured">
+        <div class="page_description_over"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <div class="page_description">
+                        <h1>{{article.title}}</h1>
+                        <div class="enty-meta">{{article.category}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hamburger_holder">
+        <span class="icon_menu" aria-hidden="true"></span>
+    </div>
+    
+    {% include "webapp/include/nav.html" %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 with_sidebar_article">
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main" role="main">
+                        <div class="entry-content">
+                            <div class="row">
+                                <div class="col-md-12 mb-30">
+                                    <h3>{{article.title}}</h3>
+
+                                    <p>{{article.body}}</p>
+                                    <sub>{{article.date}}</sub>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </main>
+                    <!-- .site-main -->
+                </div>
+                <!-- .content-area -->
+            </div>
+            <div class="col-md-4" id="oi_blog_sb">
+                
+                <section id="categories-2" class="widget widget_categories">
+                    <h5 class="widget-title">Categories</h5>
+                    <ul>
+                        <li class="cat-item cat-item-17">
+                            <a href="#">Office</a>
+                        </li>
+                        <li class="cat-item cat-item-18">
+                            <a href="#">Information</a>
+                        </li>
+                        <li class="cat-item cat-item-1">
+                            <a href="#">Conatact</a>
+                        </li>
+                        
+                    </ul>
+                </section>
+                
+                
+    
+            </div>
+        </div>
+    </div>
+    <div class="bottom_line">
+        <div class="row">
+            <div class="col-md-6">
+                <p>Developed by Team Adiva. Copyright © 2010 - 2018 Adiva Graphics, LLC. All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'web/framework/js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/js/contact-form.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/js/remodal.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/lightcase/lightcase.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/js/functions.js' %}"></script>
+</body>
+
+
+</html>

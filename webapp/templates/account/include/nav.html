@@ -1,0 +1,86 @@
+{% load static %}
+{% block content %}
+
+<div class="menu_holder">
+    <div class="inner_holder">
+        <div class="text-logo">
+            <img src="{% static 'framework/img/logo_fff.png' %}" alt="Adiva Graphics" class="img-fluid" />
+        </div>
+        <div class="call_extra">
+            <i class="fa fa-fw fa-envelope-o" aria-hidden="true"></i>
+        </div>
+        <nav id="site-navigation" class="main-navigation" aria-label="Primary Menu">
+            <div class="menu-primary-menu-container">
+                <ul class="primary-menu">
+                    {% with url_name=request.resolver_match.url_name %}
+                    <li class="{% if url_name == 'index' %}current-menu-item current_page_item{% endif %}">
+                        <a href="{% url 'index' %}">Ground 1.0</a> <sub>Home</sub>
+                    </li>
+                    <li class="{% if url_name == 'bio' %}current-menu-item current_page_item{% endif %}">
+                            <a href="{% url 'bio' %}" >411 in US</a><sub>BIO</sub>
+                    </li>
+                    <li class="{% if url_name == 'mindset' %}current-menu-item current_page_item{% endif %}">
+                            <a href="{% url 'mindset' %}">Mindset</a><sub>Believe Season</sub>
+                    </li>
+                    <li class="{% if url_name == 'life' %}current-menu-item current_page_item{% endif %}">
+                            <a href="{% url 'life' %}">Life at Adiva</a><sub>Adiva Family</sub>
+                    </li>
+                    <li class="{% if url_name == 'contact' %}current-menu-item current_page_item{% endif %}">
+                        <a href="{% url 'contact' %}">Get in Touch</a> <sub>Contact</sub>
+                    </li>
+                    {% endwith %}
+                </ul>
+            </div>
+        </nav>
+        <!-- .main-navigation -->
+        <div class="menu_footer">
+            <nav aria-label="Footer Menu">
+                <div class="menu-social-menu-container">
+                    <ul class="footer-menu">
+                        <li>
+                            <a href="https://www.facebook.com/AdivaGraphicsLLC/" target="_blank">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/company/13429780/" target="_blank">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- .social-navigation -->
+            <p>Copyright © 2018. Design by Adiva Graphics </a>
+            </p>
+        </div>
+    </div>
+    <div class="extra_holder">
+        <div class="inner_holder">
+            <h3 class="text-center">Drop us a message</h3>
+            <form method="post">
+                <div class="row text-left">
+                    <div class="col-md-6">
+                        <input class="form-name" type="text" name="your-name" value="" size="40" placeholder="NAME" />
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-email" type="email" name="your-email" value="" size="40" placeholder="E-MAIL" />
+                    </div>
+                    <div class="col-md-12">
+                        <input class="form-subject" type="text" name="subject" value="" size="40" placeholder="SUBJECT" />
+                    </div>
+                    <div class="col-md-12">
+                        <textarea class="form-message" name="your-message" cols="5" rows="2" placeholder="MESSAGE"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="text-center mb-0">
+                            <input class="send-form" type="submit" value="SEND MESSAGE" />
+                        </p>
+                    </div>
+                </div>
+                <div class="wpcf7-response-output wpcf7-display-none"></div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,76 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+# Create your models here.
+from django.db import models
+
+
+class Months(models.Model):
+    month = models.CharField(max_length=25)
+    quarter = models.CharField(max_length=10)
+
+    def __str__(self):
+        return str(self.month) + ' ' + str(self.quarter)
+
+
+class Year(models.Model):
+    year = models.IntegerField()
+
+    def __str__(self):
+        return str(self.year)
+
+
+class Company(models.Model):
+    company_name = models.CharField("Company Name", max_length=100)
+    company_representative = models.CharField("Company Representative", max_length=150, blank=True)
+    company_region = models.CharField("Company Location", max_length=25, blank=True)
+    company_mail = models.CharField("Company Mail", max_length=100, blank=True)
+    company_representative_designation = models.CharField(max_length=100, verbose_name="Representative Designation",
+                                                          blank=True)
+
+    def __str__(self):
+        return str(self.company_name) + ' ' + str(self.company_mail) + ' ' + str(self.company_region) + ' ' + str(
+            self.company_representative)
+
+
+class ProjectCounter(models.Model):
+    month = models.ForeignKey(Months, verbose_name="Month", on_delete=models.CASCADE)
+    year = models.ForeignKey(Year, verbose_name="Year", on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, verbose_name="Company Name", on_delete=models.CASCADE)
+    completed_project_number = models.IntegerField("Completed Porject Number")
+    total_phases_number = models.IntegerField("Total Phase Number")
+    feedback_received_number = models.IntegerField("Feedback Received Number")
+    adiva_incurred_hours = models.IntegerField("Adiva Incurred Hours")
+
+    def __str__(self):
+        return str(self.month)
+
+
+class Resource(models.Model):
+    company = models.ForeignKey(Company, verbose_name="Company Name", on_delete=models.CASCADE)
+    capacity = models.IntegerField("Resource Capacity")
+    utilized = models.IntegerField("Resource Utilized")
+
+    def __str__(self):
+        return "Company Name:" + str(self.company) + '\nNumber of Project Utilized ' + str(self.utilized)
+
+
+class Projects(models.Model):
+
+    company = models.ForeignKey(Company, verbose_name="Company Name", on_delete=models.CASCADE)
+    isCompleted = models.BooleanField(default=False, verbose_name="Completed")
+    projects_name = models.CharField(max_length=250)
+
+    def __str__(self):
+        return "Project Name: " + str(self.projects_name)
+
+
+class Clients(models.Model):
+    name = models.CharField(max_length=250)
+    project = models.ForeignKey(Projects, verbose_name="Project Name", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "Client Name: " + str(self.name)
+
+    class Meta:
+        ordering = ["project"]

@@ -1,0 +1,48 @@
+/*for horizontal bar hover*/
+/*.tHor {
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 180px;
+}
+*/
+
+.tHor {
+  overflow: hidden;
+  white-space: nowrap;
+  height: 41px;
+  max-width: 220px;
+ 
+}
+
+
+.tHor:hover {
+  overflow-x: auto;
+  
+}
+
+/*for vertical bar*/
+.tScroll{
+  overflow-y: auto;
+  height: 2%;
+}
+/*styling horizontal bar*/
+.tHor::-webkit-scrollbar{ 
+  height: 4px; /*for horizontal bar height property works for vertical use width here*/
+} 
+
+/* Track */
+.tHor::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 15px;
+}
+
+/* Handle */
+.tHor::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+.tHor::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

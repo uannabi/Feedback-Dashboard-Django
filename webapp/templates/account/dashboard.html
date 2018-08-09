@@ -1,0 +1,523 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ADIVA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta content="Admin Dashboard" name="description" />
+    <meta content="ThemeDesign" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <link rel="shortcut icon" href="{% static 'dashboard/assets/images/FAV.png' %}">
+    <link href="{% static 'dashboard/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'dashboard/assets/css/icons.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'dashboard/assets/css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'dashboard/assets/css/new.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body class="fixed-left-void">
+        {% if request.user.is_authenticated %}
+    <div id="wrapper" class="forced enlarged">
+        <div class="topbar">
+            <div class="topbar-left">
+                <div class="text-center">
+                   <a href="{% url 'index' %}" class="logo">
+                        <img src="{% static 'dashboard/assets/images/logo.png' %}">
+                    </a>
+                    <a href="{% url 'index' %}" class="logo-sm">
+                        <img src="{% static 'dashboard/assets/images/logo_sm.png' %}"><br>
+                        <a href="{% url 'logout' %}"> <h6>Log out</h6></a>
+                    </a>
+                </div>
+            </div>
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <center><h2>   <span>Resource Capacity & Project Track - {{ request.user }}</span></h2></center> 
+                </div>
+            </div>
+        </div>
+
+        <div class="content-page">
+            <div class="content">
+                <div class="">
+                    <div class="page-header-title">
+
+                    </div>
+                </div>
+                <div class="page-content-wrapper ">
+                    <div class="container">
+
+                            <div class="row">
+                                    <div class="col-md-4">
+                                            <div class="panel panel-primary">
+                                                <div class="panel-body">
+                                                    <h4 class="m-b-30 m-t-0">Adiva Resource Capacity</h4>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                    <tr>
+                                                                    
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Resource Capacity</td>
+                                                                        <td>{{ resourceCapacity.capacity }}</td>
+                                                                       
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Resource Utilized</td>
+                                                                        <td>{{ resourceCapacity.utilized }}</td>
+                                                                        
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Unutilized Resource</td>
+                                                                        <td>{{ unUtilizedResources }}</td>
+                                                                        
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Projects in Progress</td>
+                                                                        <td>{{ ongoingProjectNumber }}</td>
+                                                                        
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="col-md-8">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-body">
+                                                <h4 class="m-b-30 m-t-0">Project In Progress</h4>
+                                                <div class="row">
+                                                    <div class="col-xs-12 tScroll">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="textNew">Serial</th>
+                                                                    <th class="textNew i5Name">Name of the Project</th>
+                                                                    <th class="textNew borderBottom">Name of the Client</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody class="textNew">
+
+                                                            {% for project in ongoingProject %}
+                                                                <tr>
+                                                                    <td>{{ forloop.counter }}</td>
+                                                                    <td>{{ project.projects_name }}</td>
+                                                                         <td class="tHor">
+                                                                        {% for clients in project.clients_set.all %}
+                                                                            {% if  clients%}
+                                                                            {{ clients.name }}&nbsp;
+                                                                            {% endif %}
+                                                                        {% endfor %}
+                                                                    </td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>  
+
+                                </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        <h4 class="m-b-30 m-t-0">Q'1</h4>
+{# Div Starts for the container of Q'1 #}
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textNew timPer">Time Period</th>
+                                                            <th class="textNew">Project completed</th>
+                                                            <th class="textNew">Total Phases</th>
+                                                            <th class="textNew" >Feedback Received</th>
+                                                            <th class="adivaIncur">Incurred Hours</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="textNew">
+                                                    {#checking if the quarter is started yet or not#}
+                                                    {% if totalQ1.projectCounter %}
+                                                    {% for project in totalQ1.projectCounter %}
+                                                        <tr>
+                                                            <td>{{ project.month.month }}</td>
+                                                            <td>{{ project.completed_project_number }}</td>
+                                                            <td>{{ project.total_phases_number }}</td>
+                                                            <td>{{ project.feedback_received_number }}</td>
+                                                            <td>{{ project.adiva_incurred_hours }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                        <tr>
+                                                            <td class="active">Total Q1</td>
+                                                            <td class="active">{{ totalQ1.totalCompletedProject}}</td>
+                                                            <td class="active">{{ totalQ1.totalCompletedPhase  }}</td>
+                                                            <td class="active">{{ totalQ1.totalFeedbackRecieved  }}</td>
+                                                            <td class="active">{{ totalQ1.totalIncurruedHour  }}</td>
+                                                        </tr>
+                                                    {% else %}
+                                                         <tr>
+                                                            <td>January</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>February</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>March</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="active"> Total Q1</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                    {% endif %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+{# div ENDS for the container of Q'1 Data #}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        <h4 class="m-b-30 m-t-0">Q'2</h4>
+{# Div Starts for the container of Q'2 #}
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textNew timPer">Time Period</th>
+                                                            <th class="textNew">Project completed</th>
+                                                            <th class="textNew">Total Phases</th>
+                                                            <th class="textNew">Feedback Received</th>
+                                                            <th class="adivaIncur">Incurred Hours</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="textNew">
+                                                    {#checking if the quarter is started yet or not#}
+                                                    {% if totalQ2.projectCounter %}
+                                                    {% for project in totalQ2.projectCounter %}
+                                                        <tr>
+                                                            <td>{{ project.month.month }}</td>
+                                                            <td>{{ project.completed_project_number }}</td>
+                                                            <td>{{ project.total_phases_number }}</td>
+                                                            <td>{{ project.feedback_received_number }}</td>
+                                                            <td>{{ project.adiva_incurred_hours }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                        <tr>
+                                                            <td class="active">Total </td>
+                                                            <td class="active">{{ totalQ2.totalCompletedProject}}</td>
+                                                            <td class="active">{{ totalQ2.totalCompletedPhase  }}</td>
+                                                            <td class="active">{{ totalQ2.totalFeedbackRecieved  }}</td>
+                                                            <td class="active">{{ totalQ2.totalIncurruedHour  }}</td>
+                                                        </tr>
+                                                    {% else %}
+                                                         <tr>
+                                                            <td>April</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>May</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>June</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="active"> Total Q2</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                    {% endif %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+{# div ENDS for the container of Q'2 Data #}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        <h4 class="m-b-30 m-t-0">Q'3</h4>
+{#Div starts for Quarter 3 Q'3#}
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textNew timPer">Time Period</th>
+                                                            <th class="textNew">Project completed</th>
+                                                            <th class="textNew">Total Phases</th>
+                                                            <th class="textNew">Feedback Received</th>
+                                                            <th class="adivaIncur">Incurred Hours</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="textNew">
+                                                    {% if totalQ3.projectCounter %}
+                                                    {% for project in totalQ3.projectCounter %}
+                                                        <tr>
+                                                            <td>{{ project.month.month }}</td>
+                                                            <td>{{ project.completed_project_number }}</td>
+                                                            <td>{{ project.total_phases_number }}</td>
+                                                            <td>{{ project.feedback_received_number }}</td>
+                                                            <td>{{ project.adiva_incurred_hours }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                        <tr>
+                                                            <td class="active">Total </td>
+                                                            <td class="active">{{ totalQ3.totalCompletedProject}}</td>
+                                                            <td class="active">{{ totalQ3.totalCompletedPhase  }}</td>
+                                                            <td class="active">{{ totalQ3.totalFeedbackRecieved  }}</td>
+                                                            <td class="active">{{ totalQ3.totalIncurruedHour  }}</td>
+                                                        </tr>
+                                                    {% else %}
+                                                         <tr>
+                                                            <td>July</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>August</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>September</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="active"> Total Q3</td>
+                                                            <td class="active">N/A</td>
+                                                            <td class="active">N/A</td>
+                                                            <td class="active">N/A</td>
+                                                            <td class="active">N/A</td>
+                                                        </tr>
+                                                    {% endif %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+{#Div ENDS for Quarter 3 Q'3#}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        <h4 class="m-b-30 m-t-0">Q'4</h4>
+{# Div Starts for the container of Q'4 #}
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textNew timPer">Time Period</th>
+                                                            <th class="textNew">Project completed</th>
+                                                            <th class="textNew">Total Phases</th>
+                                                            <th class="textNew">Feedback Received</th>
+                                                            <th class="adivaIncur">Incurred Hours</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="textNew">
+                                                    {% if totalQ4.projectCounter %}
+                                                    {% for project in totalQ4.projectCounter %}
+                                                        <tr>
+                                                            <td>{{ project.month.month }}</td>
+                                                            <td>{{ project.completed_project_number }}</td>
+                                                            <td>{{ project.total_phases_number }}</td>
+                                                            <td>{{ project.feedback_received_number }}</td>
+                                                            <td>{{ project.adiva_incurred_hours }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                        <tr>
+                                                            <td class="active">Total </td>
+                                                            <td class="active">{{ totalQ4.totalCompletedProject}}</td>
+                                                            <td class="active">{{ totalQ4.totalCompletedPhase  }}</td>
+                                                            <td class="active">{{ totalQ4.totalFeedbackRecieved  }}</td>
+                                                            <td class="active">{{ totalQ4.totalIncurruedHour  }}</td>
+                                                        </tr>
+                                                    {% else %}
+                                                         <tr>
+                                                            <td>October</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>November</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>December</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                            <td>N/A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="active"> Total Q4</td>
+                                                            <td class="active">N/A</td>
+                                                            <td class="active">N/A</td>
+                                                            <td class="active">N/A</td>
+                                                            <td class="active">N/A</td>
+                                                        </tr>
+                                                    {% endif %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+{# div ENDS for the container of Q'4 Data #}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        <h4 class="m-b-30 m-t-0">In Summary</h4>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Year</th>
+                                                                <th>First Quater <br>Total</th>
+                                                                <th>Second Quater<Br> toatal</th>
+                                                                <th>Third Quater <Br> toatal</th>
+                                                                <th>Fourth Quater <Br> toatal</th>
+                                                                <th>YTD</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>2018</td>
+                                                                <td>9952 hrs</td>
+                                                                <td>2255 hrs</td>
+                                                                <td>8975 hrs</td>
+                                                                <td>9852 hrs</td>
+                                                                <td>99875 hrs</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2017</td>
+                                                                <td>9952 hrs</td>
+                                                                <td>2255 hrs</td>
+                                                                <td>8975 hrs</td>
+                                                                <td>9852 hrs</td>
+                                                                <td>89875 hrs</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2016</td>
+                                                                <td>9952 hrs</td>
+                                                                <td>2255 hrs</td>
+                                                                <td>8975 hrs</td>
+                                                                <td>9852 hrs</td>
+                                                                <td>59875 hrs</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2015</td>
+                                                                <td>9952 hrs</td>
+                                                                <td>2255 hrs</td>
+                                                                <td>8975 hrs</td>
+                                                                <td>9852 hrs</td>
+                                                                <td>29875 hrs</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                       
+                    </div> <!--container-->
+                </div> <!--wrapper-->
+
+            </div> <!--content-->
+
+            <footer class="footer"> © 2010 - 2018 Adiva Graphics - All Rights Reserved. </footer>
+        </div> <!--content page -->
+    </div> <!--left void -->
+        {%else%}
+             <h2>Please log in  <a href="{% url 'login'%}">Here</a></h2>
+    {% endif %}
+    <script src="{% static 'dashboard/assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'dashboard/assets/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'dashboard/assets/js/modernizr.min.js'%}"></script>
+    <script src="{% static 'dashboard/assets/js/detect.js'%}"></script>
+    <script src="{% static 'dashboard/assets/js/fastclick.js'%}"></script>
+    <script src="{% static 'dashboard/assets/js/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/jquery.blockUI.js'%}"></script>
+    <script src="{% static 'dashboard/assets/js/waves.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/jquery.nicescroll.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/jquery.scrollTo.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/app.js'%}"></script>
+</body>
+
+
+</html>

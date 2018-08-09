@@ -1,0 +1,134 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+  <title>My account &#8211; Adiva Graphics</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="{% static 'framework/css/woocommerce-layout.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/woocommerce-smallscreen.css' %}" type="text/css" media="only screen and (max-width: 768px)">
+  <link rel="stylesheet" href="{% static 'framework/css/woocommerce.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/bootstrap.min.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/style.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/contact-form.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/vc.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/remodal.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/wocommerce.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/remodal-default-theme.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/font-awesome/css/font-awesome.min.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/elegant-font/style.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/linecons/style.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/lightcase/lightcase.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'framework/css/page/account.css' %}" type="text/css" media="all" />
+  <script type="text/javascript" src="{% static 'framework/js/jquery.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/jquery-migrate.min.js' %}"></script>
+  <!--[if lt IE 9]>
+<script type="text/javascript" src="framework/js/html5min.js"></script>
+<![endif]-->
+</head>
+
+<body class="woocommerce woocommerce-page woo_active standard_page dark_bg half_screen_fi have_featured_image not_logged_in woocommerce_enable_myaccount_registration_no">
+  <div class="preload"></div>
+  <div class="header">
+    <div class="logo_holder">
+      <a href="{% url 'index' %}">
+        <img class="logo_for_dark_bg img-fluid" src="{% static 'framework/img/logo.png' %}" alt="Adiva Graphics" />
+        <img class="logo_for_light_bg img-fluid" src="{% static 'framework/img/logo.png' %}" alt="Adiva Graphics" />
+        
+    </a>
+    </div>
+
+
+    <!-- .site-header-social-menu -->
+  </div>
+  <div class="page_featured">
+    <div class="page_description_over"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 text-center">
+          <div class="page_description">
+            <h1>My account</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hamburger_holder">
+    <span class="icon_menu" aria-hidden="true"></span>
+  </div>
+  {% include "account/include/nav.html" %}
+  <div class="overlay"></div>
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="hide_if_not_logged_in">
+              <h3>Good Day!</h3>
+              <p>You are awesome</p>
+            </div>
+            <div class="woocommerce">
+              <h2> Client Login</h2>
+              <form class="woocommerce-form woocommerce-form-login login " action="{% url 'signup' %}" method="post">
+                 
+                  {% csrf_token %}
+                 
+                      {% for non_field_error in form.non_field.errors %}
+                      <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                          {{ non_field_error }}
+                      </p>
+                {% endfor %}
+                   {% for field in form %}
+                       
+                      {{ field }}
+                       {% if field.help_text %}
+                       
+                          <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                              {{ field.help_text }}
+                          </p>
+                       {% endif %}
+                       
+                       {% for error in field.errors %}
+                       
+                           <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide"><br>
+                              {{ error }}
+                           </p>
+                       {% endfor %}
+                       
+                    {% endfor %}
+                    
+              <input type="submit" class="woocommerce-Button button" name="login" value="Register" />  
+              <a href="{% url 'login'%}">Login Here</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- .site-main -->
+
+  </div>
+  <!-- .content-area -->
+
+  <script type="text/javascript" src="{% static 'framework/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/popper.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/contact-form.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/remodal.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/lightcase/lightcase.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/functions.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/core.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/widget.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/mouse.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/slider.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/jquery-ui-touch-punch.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/accounting.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'framework/js/price-slider.min.js' %}"></script>
+</body>
+
+
+</html>
+
+
+
+
