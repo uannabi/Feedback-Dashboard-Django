@@ -6,7 +6,7 @@
 
 <head>
     <title>Details &#8211; Adiva Graphics</title>
-    <link rel="icon" href="{% static 'framework/img/FAV.png' %}" type="image/gif/svg" sizes="16x16">
+    <link rel="icon" href="{% static 'web/framework/img/FAV.png' %}" type="image/gif/svg" sizes="16x16">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{% static 'web/framework/css/bootstrap.min.css' %}" type="text/css" media="all" />
@@ -26,7 +26,7 @@
 <![endif]-->
 </head>
 
-<body class="woo_active standard_page dark_bg have_featured_image">
+<body class="woo_active standard_page dark_bg csr">
     <div class="header">
         <div class="logo_holder">
             <a href="{% url 'index'%}">
@@ -43,8 +43,9 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3 text-center">
                     <div class="page_description">
-                        <h1>{{article.title}}</h1>
-                        <div class="enty-meta">{{article.category}}</div>
+
+                        <h1>{{csr.title}}</h1>
+                        <div class="entry-meta"><h4>{{csr.category}}</h4></div>
                     </div>
                 </div>
             </div>
@@ -64,10 +65,13 @@
                         <div class="entry-content">
                             <div class="row">
                                 <div class="col-md-12 mb-30">
-                                    <h3>{{article.title}}</h3>
 
-                                    <p>{{article.body}}</p>
-                                    <sub>{{article.date}}</sub>
+                                    <img src={{csr.photo.url }}>
+                                     <Br>
+                                    <h3>{{csr.title}}</h3>
+
+                                    <p>{{csr.body}}</p>
+                                    <sub>{{csr.date}}</sub>
                                 </div>
                             </div>
 
@@ -82,22 +86,22 @@
                 
                 <section id="categories-2" class="widget widget_categories">
                     <h5 class="widget-title">Categories</h5>
+                {% if csrs  %}
+                    {% for csr in csrs %}
                     <ul>
+
                         <li class="cat-item cat-item-17">
-                            <a href="#">Office</a>
+                            <a href="{% url 'detail' slug=csr.slug %}"> {{ csr.category }}</a>
                         </li>
-                        <li class="cat-item cat-item-18">
-                            <a href="#">Information</a>
-                        </li>
-                        <li class="cat-item cat-item-1">
-                            <a href="#">Conatact</a>
-                        </li>
-                        
+
                     </ul>
+                    {% endfor %}
+                {% else %}
+                    nope
+                {% endif %}
                 </section>
                 
-                
-    
+               
             </div>
         </div>
     </div>

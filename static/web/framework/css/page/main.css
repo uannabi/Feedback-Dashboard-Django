@@ -1,0 +1,667 @@
+.main-1 {
+	background-image: url(../../img/bicycle-in-blue-room-PZHAAMS.jpg);
+	/* background-color: #1e73be;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	width: 100%; */
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+}
+
+.out {
+	position: absolute;
+	bottom: 15%;
+	font: 2em ubuntu;
+	font-family: 'Source Sans Pro', sans-serif;
+	/* font-family: Dosis; */
+	/* font-family: 'Orbitron', sans-serif; */
+	/* font-family: 'Roboto Condensed', sans-serif;
+	font: 2em; */
+	color: #00c655;
+	left: 2%;
+}
+
+.out ul {
+	list-style-type: none;
+}
+
+.out li,
+ol {
+	display: inline-block;
+	margin: none !important;
+}
+
+@keyframes strike {
+	0% {
+		width: 0;
+		left: 50%;
+	}
+	100% {
+		width: 100%;
+		left: 0;
+	}
+}
+
+.strike {
+	position: relative;
+	font-family: Dosis;
+}
+
+.strike:after {
+	content: ' ';
+	position: absolute;
+	top: calc(45% + 3px);
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #e51b24;
+	animation-name: strike;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+.gifimg {
+	background-image: url(outs.GIF);
+	position: absolute;
+}
+
+.out h3 {
+	/* border-right: .1em solid black; */
+	width: 20.5em;
+	width: 32ch;
+	color: #0071bc;
+	/* font-family: Dosis; */
+	font-family: 'objektiv-mk1', sans-serif;
+	/* margin: 1em 0em; */
+	white-space: nowrap;
+}
+
+/* .main-1-2{
+	white-space: nowrap;
+    font-size: 106px;
+    line-height: 106px;
+    font-weight: 800;
+    color: #0091e4;
+	font-family: Dosis;
+	font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    text-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
+    text-align: center;
+} */
+
+/* .main-1-1 {
+	text-align: left;
+	position: absolute;
+	line-height: 45px !important;
+	bottom: 5%;
+	left: 2%;
+} */
+
+.zahid {
+	color: #02bcd5;
+	position: absolute;
+	/* top: 20%; */
+	white-space: nowrap;
+	bottom: 5%;
+	left: 99%;
+	/* border-bottom: 20px solid;
+	-webkit-gradient:(linear, 0 0, 100% 0, from(rgb(250, 252, 255)), to(#76bc21))!important;
+	-webkit-linear-gradient:(left, rgb(253, 253, 253), #76bc21)!important;
+	-moz-linear-gradient:(left, rgb(253, 253, 253), #76bc21)!important;
+	-o-linear-gradient:(left, rgb(253, 253, 253), #76bc21)!important; */
+}
+
+.dot {
+	height: 20px;
+	width: 100%;
+	background-image: -webkit-gradient(linear, 0 0, 100% 0, from(rgb(250, 252, 255)), to(#76bc21));
+	background-image: -webkit-linear-gradient(left, rgb(253, 253, 253), #76bc21);
+	background-image: -moz-linear-gradient(left, rgb(253, 253, 253), #76bc21);
+	background-image: -o-linear-gradient(left, rgb(253, 253, 253), #76bc21);
+}
+
+#container {
+	color: #999;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: 600;
+	margin-bottom: 85%;
+	padding: 4%;
+}
+
+@keyframes show {
+	0% {
+		margin-top: -270px;
+	}
+	5% {
+		margin-top: -180px;
+	}
+	33% {
+		margin-top: -180px;
+	}
+	38% {
+		margin-top: -90px;
+	}
+	66% {
+		margin-top: -90px;
+	}
+	71% {
+		margin-top: 0px;
+	}
+	99.99% {
+		margin-top: 0px;
+	}
+	100% {
+		margin-top: -270px;
+	}
+}
+
+.main-1-2 {
+	white-space: nowrap;
+	font-size: 74px;
+	line-height: 106px;
+	font-weight: 800;
+	color: #0091e4;
+	font-family: Dosis;
+	font-family: 'objektiv-mk1', sans-serif;
+	text-transform: uppercase;
+	text-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
+	text-align: right;
+	padding: 7%;
+}
+
+.main-1-2 img {
+	position: absolute;
+    left: 55%;
+    max-width: 80%;
+    height: auto;
+}
+
+/* .main-1-2:after {
+	content:'';
+	display:block;
+	background-color:#fff;
+	height:10px;
+	width:100px;
+	margin:50px auto 0;
+} */
+
+.main-1-3 {
+	background-color: #f2f2f2;
+}
+
+#serviceSlide {
+	margin-bottom: 50px;
+}
+
+.main-2 {
+	background-color: #fff;
+}
+
+.main-2-z {
+	background-color: #f2f2f2;
+}
+
+.main-2 .oi_custom_heading_holder {
+	margin-bottom: 60px;
+}
+
+.main-3 {
+	background: #ffffff url(../../img/blanket-on-the-couch-PADZCQ9.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.main-4 {
+	background: #f4e9f1 url(../../img/Space_Patterns_jpg.jpg);
+	background-position: 0 0;
+	background-repeat: repeat;
+}
+
+.main-4-1 {
+	background-image: url(../../img/handz_lineart_final.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.main-4-2 {
+	background-color: transparent;
+}
+
+.main-5 {
+	background-color: #fff;
+}
+
+.main-5 .oi_next_image_shortcode,
+.main-5 .oi_current_image_shortcode {
+	background-image: url(../../img/craft_bear.jpg);
+}
+
+.main-6 {
+	background: #ffffff url(../../img/two-lamps-in-a-room-P3ZFFFE.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.main-6-1 {
+	/* background-color: #ffffff; */
+	background-color: #f2f2f2;
+}
+
+.main-6-1>.oi_vc_text_span>h2>span {
+	color: #0091e4;
+}
+
+.list-service {
+	background-color: rgba(0, 0, 0, 0.7)
+}
+
+.list-service .oi_custom_heading_holder+.oi_custom_heading_holder {
+	margin-top: 40px;
+}
+
+.list-service .oi_heading_icon {
+	font-size: 40px;
+	line-height: 40px;
+}
+
+.list-service .oi_icon_titile {
+	color: #fff;
+}
+
+.list-service .oi_heading_border span {
+	width: 100px;
+	border-top: 1px dotted #a5a5a5;
+}
+
+/* 
+.main-7 {
+	background-color: #f2f2f2 !important;
+	padding: 8%;
+} */
+
+.main-7-1 {
+	background-color: #fff
+}
+
+.main-7-1 .oi_custom_heading_holder {
+	margin-bottom: 60px;
+}
+
+.main-7-1 .oi_icon_sub_titile {
+	color: #666;
+}
+
+.vc_column-inner {
+	margin-top: 10%;
+	padding: 2%;
+}
+.vc_column-inner-contact {
+	
+	padding: 2%;
+}
+
+.main-1-1 {
+	white-space: nowrap;
+	/* font-size: 18px; */
+	line-height: 19px;
+	font-weight: 400;
+	/* color: #fff; */
+	font-family: Open Sans;
+	text-align: left;
+	/* position: absolute; */
+	line-height: 45px !important;
+	font-family: 'objektiv-mk1', sans-serif;
+}
+
+.main-1-1 img {
+	position: absolute;
+	bottom: 20%;
+}
+
+#messenger {
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: monospace;
+	font-weight: 800;
+	font-size: 28px;
+	white-space: nowrap;
+	text-shadow: 0 2px 2px rgba(#000, 0.9);
+	color: #04bcd5
+}
+
+.mb-z {
+	text-align: right;
+	line-height: 1;
+}
+
+/* slide text */
+
+@media (min-width: 0px) and (max-width: 660px) {
+	.main-1-2 img {
+		position: absolute;
+		left: 1em;
+		max-width: 75%;
+		height: auto;
+		top: 2.5em;
+	}
+	/* .main-1-1 img {
+		
+	} */
+	.oi_vc_text_span {
+		text-align: justify;
+		font-size: 14px;
+	}
+	.main-1 {
+		background-image: url(../../img/bicycle-in-blue-room-PZHAAMSM.png);
+		/* background-color: #1e73be;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	width: 100%; */
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		height: 50%;
+	}
+	.oi_vc_text.item_height_x2 {
+		margin-bottom: 20px
+	}
+	#achivements,
+	#testimoniials {
+		padding: 60px 0;
+		margin-bottom: 60px;
+	}
+	#portfolio {
+		margin-top: 40px;
+	}
+	.ult-btn span {
+		margin-bottom: 30px;
+	}
+	.main-1-1 {
+		white-space: nowrap;
+		font-size: 18px;
+		font-weight: 400;
+		text-align: left;
+		line-height: 15px !important;
+		bottom: 12%;
+		left: 50%;
+		font-family: 'objektiv-mk1', sans-serif;
+	}
+	.main-1-1 img {
+		position: absolute;
+		bottom: 20%;
+	}
+	#messenger {
+		position: absolute;
+		top: 90%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-family: monospace;
+		font-weight: 400;
+		font-size: 12px;
+		white-space: nowrap;
+		text-shadow: 0 2px 2px rgba(#000, 0.9);
+		color: #04bcd5;
+	}
+	.zahid {
+		color: #adadad;
+		position: absolute;
+		/* top: 20%; */
+		white-space: pre;
+		bottom: 5em;
+		left: 8em;
+		font-size: 11px;
+		line-height: 1em;
+		/* border-bottom: 20px solid;
+		-webkit-gradient:(linear, 0 0, 100% 0, from(rgb(250, 252, 255)), to(#76bc21))!important;
+		-webkit-linear-gradient:(left, rgb(253, 253, 253), #76bc21)!important;
+		-moz-linear-gradient:(left, rgb(253, 253, 253), #76bc21)!important;
+		-o-linear-gradient:(left, rgb(253, 253, 253), #76bc21)!important; */
+	}
+	.vc_column-inner {
+		margin-top: 15%;
+		/* padding: 10%; */
+	}
+	@keyframes show {
+		0% {
+			margin-top: -270px;
+		}
+		5% {
+			margin-top: -180px;
+		}
+		33% {
+			margin-top: -180px;
+		}
+		38% {
+			margin-top: -90px;
+		}
+		66% {
+			margin-top: -90px;
+		}
+		71% {
+			margin-top: 0px;
+		}
+		99.99% {
+			margin-top: 0px;
+		}
+		100% {
+			margin-top: -270px;
+		}
+	}
+	.main-1-2 {
+		font-size: 47px;
+		line-height: 47px;
+	}
+	.main-1-2 span {
+		font-size: 63px;
+		line-height: 94px;
+	}
+}
+
+@media (min-width: 661px) and (max-width: 1000px) {
+	.main-1 {
+		background-image: url(../../img/bicycle-in-blue-room-PZHAAMSM.jpg);
+		/* background-color: #1e73be;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	width: 100%; */
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		height: 50%;
+	}
+	.oi_vc_text.item_height_x2 {
+		margin-bottom: 20px
+	}
+	#achivements,
+	#testimoniials {
+		padding: 60px 0;
+		margin-bottom: 60px;
+	}
+	#portfolio {
+		margin-top: 40px;
+	}
+	.ult-btn span {
+		margin-bottom: 30px;
+	}
+	/* .main-1-1 {
+		text-align: left;
+		position: absolute;
+		line-height: 45px !important;
+		bottom: 5%;
+		left: 2%;
+	} */
+	.zahid {
+		color: #adadad;
+		position: absolute;
+		/* top: 20%; */
+		white-space: nowrap;
+		bottom: 5%;
+		left: 99%;
+		/* border-bottom: 20px solid;
+		-webkit-gradient:(linear, 0 0, 100% 0, from(rgb(250, 252, 255)), to(#76bc21))!important;
+		-webkit-linear-gradient:(left, rgb(253, 253, 253), #76bc21)!important;
+		-moz-linear-gradient:(left, rgb(253, 253, 253), #76bc21)!important;
+		-o-linear-gradient:(left, rgb(253, 253, 253), #76bc21)!important; */
+	}
+	.vc_column-inner {
+		margin-top: 10%;
+		padding: 10%;
+	}
+	@keyframes show {
+		0% {
+			margin-top: -270px;
+		}
+		5% {
+			margin-top: -180px;
+		}
+		33% {
+			margin-top: -180px;
+		}
+		38% {
+			margin-top: -90px;
+		}
+		66% {
+			margin-top: -90px;
+		}
+		71% {
+			margin-top: 0px;
+		}
+		99.99% {
+			margin-top: 0px;
+		}
+		100% {
+			margin-top: -270px;
+		}
+	}
+	.main-1-2 {
+		font-size: 47px;
+		line-height: 47px;
+	}
+	.main-1-2 span {
+		font-size: 63px;
+		line-height: 94px;
+	}
+	.main-1-2 img {
+		top: 10%;
+		position: absolute;
+		left: 10%;
+		width: 70%;
+		height: auto;
+		width: auto\9;
+	}
+	.oi_vc_text_span {
+		/* text-align: justify; */
+		font-size: 14px;
+	}
+	.main-1-1 {
+		white-space: nowrap;
+		font-size: 18px;
+		/* line-height: 19px; */
+		font-weight: 400;
+		/* color: #fff; */
+		/* font-family: Open Sans; */
+		/* margin-bottom: 30px; */
+		text-align: left;
+		position: absolute;
+		/* line-height: 45px !important; */
+		bottom: 50%;
+		left: 50%;
+		font-family: 'objektiv-mk1', sans-serif;
+	}
+	.main-1-1 img{
+		white-space: nowrap;
+		font-size: 18px;
+		/* line-height: 19px; */
+		font-weight: 400;
+		/* color: #fff; */
+		/* font-family: Open Sans; */
+		/* margin-bottom: 30px; */
+		text-align: left;
+		position: absolute;
+		/* line-height: 45px !important; */
+		bottom: 5%;
+		left: 0%;
+		font-family: 'objektiv-mk1', sans-serif;
+
+	}
+}
+
+@media (min-width: 1001px) and (max-width: 1500px) {
+	.main-1-2 img {
+		position: absolute;
+		max-width: 38%;
+		height: auto;
+		top: 7%;
+		right: 1%;
+		padding: 1em;
+	}
+	.main-1 {
+		background-image: url(../../img/bicycle-in-blue-room-PZHAAMS.jpg);
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		height: 100%;
+		width: 100%;
+	}
+	.main-1-1 {
+		white-space: nowrap;
+		font-size: 18px;
+		/* line-height: 19px; */
+		font-weight: 400;
+		/* color: #fff; */
+		/* font-family: Open Sans; */
+		/* margin-bottom: 30px; */
+		text-align: left;
+		/* line-height: 45px !important; */
+		font-family: 'objektiv-mk1', sans-serif;
+	}
+	main-1-1 img {
+		position: absolute;
+		bottom: 10%;
+	}
+	#messenger {
+		position: absolute;
+		top: 80%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-family: monospace;
+		font-weight: 800;
+		font-size: 28px;
+		white-space: nowrap;
+		text-shadow: 0 2px 2px rgba(#000, 0.9);
+		color: #04bcd5
+	}
+	.vc_column-inner {
+		margin-top: 10%;
+		padding: 10%;
+	}
+}

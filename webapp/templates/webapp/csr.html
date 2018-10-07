@@ -1,0 +1,120 @@
+{% load static %}
+<html lang="en-US" class="no-js">
+
+<head>
+    <title>CSR &#8211; Adiva Graphics</title>
+    <link rel="icon" href="{% static 'web/framework/img/FAV.png' %}" type="image/gif/svg" sizes="16x16">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'web/framework/css/bootstrap.min.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/style.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/contact-form.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/vc.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/font-awesome/css/font-awesome.min.css' %}" type="text/css" media="all"
+    />
+    <link rel="stylesheet" href="{% static 'web/framework/css/elegant-font/style.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/wocommerce.css' %}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'web/framework/css/page/blog.css' %}" type="text/css" media="all" />
+    <script type="text/javascript" src="{% static 'web/framework/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/js/jquery-migrate.min.js' %}"></script>
+    <!--[if lt IE 9]>
+<script type="text/javascript" src="framework/js/html5min.js"></script>
+<![endif]-->
+</head>
+
+<body class="woo_active standard_page blog dark_bg half_screen_fi ">
+    <div class="preload"></div>
+    <div class="header">
+        <div class="logo_holder">
+                <a href="{% url 'index'%}">
+                <img class="logo_for_dark_bg img-fluid" src="{% static 'web/framework/img/logo.png' %}" alt="Adiva Graphics" />
+                <!-- <img class="logo_for_light_bg img-fluid" src="framework/img/logo.png" alt="Adiva Graphics" /> -->
+            </a>
+        </div>
+       
+        <!-- .site-header-social-menu -->
+    </div>
+    <div class="page_featured ">
+        <div class="page_description_over"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <div class="page_description">
+                        <h1>Corporate Social Responsibility</h1>
+                        Participating in CSR initiatives allows our company to have the opportunity to share our core values and create trust among our employees, clients and our community. Our company’s continuous efforts to improve society is supported by foreign revenue generated from our clients. We have a few core issues that needs to be addressed in our society and hence, AdivaGraphics is constantly working towards our community’s prosperity.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hamburger_holder">
+        <span class="icon_menu" aria-hidden="true"></span>
+    </div>
+    
+    {% include "webapp/include/nav.html" %}
+    <div class="overlay"></div>
+    <div class="row page_for_blog">
+        <div class="col-md-12">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+                {% for csr in csrs %}
+                    <div class="blog_article_holder sticky blog-1">
+                        <a class="main_blog_a" href="{% url 'detail' slug=csr.slug %}">
+                            <div class="blogpost_image_holder">
+                                <img src="{{ csr.photo.url }}">
+                            </div>
+                            <article>
+
+                                <div>
+                                    <div class="entry-header">
+                                        <div class="oi_date">
+                                            <h6>{{ csr.date }}</h6>
+                                        </div>
+                                        <h3 class="entry-title">{{ csr.title }}</h3>
+                                        <div class="enty-meta"> <h4>Category:{{ csr.category }}</h4> </div>
+                                        <p class="oi_icon_sub_titile">{{ csr.snippet }} </p>
+                                    </div>
+                                    <!-- .entry-header -->
+                                </div>
+
+                            </article>
+                            <!-- #post-## -->
+                        </a>
+                    </div>
+                {% endfor %}
+                    <nav class="navigation pagination" role="navigation">
+                        <h2 class="screen-reader-text">Choose Page</h2>
+{#                        <div class="nav-links">#}
+{#                            <span class="page-numbers current">1</span>#}
+{#                            <a class="page-numbers" href="#">2</a>#}
+{#                            <a class="next page-numbers" href="#">Next</a>#}
+{#                        </div>#}
+                        {% block content %}
+                        {% include "webapp/include/pagination.html" with page=csrs %}
+                        {% endblock %}
+
+                    </nav>
+                </main>
+                <!-- .site-main -->
+            </div>
+            <!-- .content-area -->
+        </div>
+    </div>
+    <div class="bottom_line">
+            <div class="row">
+              <div class="col-md-6">
+                <p>Developed by Team Adiva. Copyright © 2010 - 2018 Adiva Graphics, LLC. All Rights Reserved
+                </p>
+              </div>
+            </div>
+          </div>
+    <script type="text/javascript" src="{% static 'web/framework/js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/js/contact-form.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/js/remodal.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/lightcase/lightcase.js' %}"></script>
+    <script type="text/javascript" src="{% static 'web/framework/js/functions.js' %}"></script>
+</body>
+
+
+</html>

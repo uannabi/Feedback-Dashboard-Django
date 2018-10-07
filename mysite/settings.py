@@ -1,3 +1,4 @@
+
 """
 Django settings for mysite project.
 
@@ -26,16 +27,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')3=rsvf0g7brgg2sm3zzsk$w7*8t-9x=ouw_sylj$#&9x$*2$6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =  True
 
 # TEMPLATE_DEBUG = DEBUG
 
-# ALLOWED_HOSTS = ['18.219.116.232']
 
-
-# Application definition
+SITE_ID = 1
 
 INSTALLED_APPS = [
+    'rangefilter',
     'random_id',
     'webapp',
     'account',
@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'admin_honeypot',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     # 'import_export',
 
 
@@ -96,11 +98,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '******',
-        'USER': '******',
-        'PASSWORD': '******',
-        'HOST': '*',
-        'PORT': '',
+        'NAME': '######',
+        'USER': '######',
+        'PASSWORD': '######',
+        'HOST': '#####',
+        'PORT': '$$$$$$$$',
     }
 }
 
@@ -133,7 +135,7 @@ AUTHENTICATION_BACKENDS = (
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'US/Eastern'
 
 USE_I18N = True
 
@@ -141,6 +143,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -169,12 +173,11 @@ SATTICFILES_DIRS = [
 LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
 LOGOUT_REDIRECT_URL = reverse_lazy ('dashboard')
 #comment it for local
-STATIC_ROOT = os.path.join(BASE_DIR, "webapp/static/")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
 
 
-ALLOWED_HOSTS = ['*']
 
 #comment it for local
 #STATIC_ROOT = os.path.join(BASE_DIR, "static/")

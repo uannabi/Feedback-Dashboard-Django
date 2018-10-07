@@ -1,0 +1,165 @@
+/*.back_image{
+	background-image: url(./../img/411.png); 
+	max-width: 100%;
+    height: auto;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+*/
+
+/*styles for different size phone screens*/
+
+@media (min-width: 100px) and (max-width: 700px) {
+    /*navbar*/
+
+	.hamburger_holder .icon_menu{
+		position: relative;
+		font-size: 16px;
+		top:-34px;
+		right: -25px;	 
+	}
+
+	.hamburger_holder .icon_close{
+		position: relative;
+		font-size: 19px;
+		top:-3px;
+		right: 2px;
+	}
+	/* !navbar*/
+	
+	/*logo fix*/
+	.img-fluid {
+		max-width: 90%;  
+		height: auto;
+		top: -25px;
+		left: -22px;
+    }
+    /*411 descrition*/
+      /*411 on us title*/
+      /*
+    .dark_bg .page_description {
+        
+        position: relative;
+        top: -50px;
+    }
+
+        .dark_bg .page_featured h1 {
+           position: relative;
+           top: -150px;
+           font-size: 150%;
+    }
+*/
+}
+/*
+@media (max-width: 700px) {
+    .dark_bg .page_description {
+    padding-top: 10px;
+    }
+}*/
+
+	/*iPad media quries*/
+@media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1023px)  {
+        /*logo fix*/
+        .img-fluid {
+            max-width: 120%;  
+            height: auto;
+            top: -13px;
+            left: -28px;
+        }
+ /*navbar*/
+
+     .hamburger_holder .icon_menu{
+    position: relative;
+    font-size: 26px;
+    top:-20px;
+    right: -25px;	 
+}
+
+    .hamburger_holder .icon_close{
+    position: relative;
+    font-size: 30px;
+    top: -23px;
+    right: -13px;
+    }
+/* !navbar*/
+/* 411 us text*/
+.dark_bg .page_description{
+    padding-top: 80%;
+    font-size: 100%;
+}
+
+}
+
+/*iPad Pro*/
+
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    /*logo fix*/
+    .img-fluid {
+        max-width: 120%;  
+        height: auto;
+        top: 13px;
+        left: 12px;
+    }
+    /*navbar*/
+
+    .hamburger_holder .icon_menu{
+        position: relative;
+        font-size: 40px;
+        top:-2px;
+        right: 0px;	 
+    }
+
+    .hamburger_holder .icon_close{
+        position: relative;
+        font-size: 39px;
+        top: -1px;
+        right: -3px;
+        }
+        /* !navbar*/
+        
+}
+
+.bg-success {
+    background-color: #95CD68;
+}
+p{
+   /* color:#ECEFF1;*/
+    /*color:#ffff;*/
+    color:#000;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 100%;
+   
+}
+
+.bg-warning {
+    background-color: #FDEDED !important
+}
+
+.dark_bg .page_featured h1 {
+    /*color: #7ac142;*/
+    color: #7ac142;
+    font-weight: 700;
+ 
+}
+
+.dark_bg .page_description {
+    color: black;
+    font-family: sans-serif;
+    font-size: 110%;
+   
+}
+
+
+@media (max-width: 800px) and (max-height: 1024px) {
+
+}
+.bottom_line p{
+    font-family: sans-serif;
+    color:#fff;
+}
+

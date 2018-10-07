@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^login/$', view=LoginUserView.as_view(), name='login'),
     url(r'^logout/$', view=LogoutView.as_view(), name='logout'),
     url(r'^dashboard/$', view=views.dashboard, name='dashboard'),
+    url(r'^lrwdag/$', view=views.dView, name='dView'),
+    
 ]

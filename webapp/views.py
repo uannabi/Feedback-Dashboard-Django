@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect
-from .models import Article
+from django.shortcuts import render, redirect, get_object_or_404
+
 from webapp.forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Article
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .models import Csr
+from django.views.generic import ListView
 
 
 def index(request):
@@ -22,7 +24,7 @@ def index(request):
                 return HttpResponse('Invalid header found.')
             return redirect('success')
     return render(request, "webapp/home.html", {'form': form})
-    # return render(request, 'webapp/home.html')
+    
 
 
 def bio(request):
@@ -33,15 +35,30 @@ def mindset(request):
     return render(request, 'webapp/mindset.html')
 
 
-def life(request):
-    articles = Article.objects.all().order_by('date')
-    return render(request, 'webapp/life.html', {'articles': articles})
 
 
-def article_details(request, slug):
-    # return HttpResponse(slug)
-    article = Article.objects.get(slug=slug)
-    return render(request, 'webapp/post.html', {'article': article})
+def csr_list(request):
+    object_list = Csr.published.all()
+    paginator = Paginator(object_list, 3)  # 4 post per page
+    page = request.GET.get('page')
+    try:
+        csrs = paginator.page(page)
+    except PageNotAnInteger:
+        # if page ins not an inteer deliver the first page
+        csrs = paginator.page(1)
+    except EmptyPage:
+        # if page is out of range deliver last page of results
+        csrs = paginator.page(paginator.num_pages)
+    # csrs = Csr.published.all()
+    return render(request, 'webapp/csr.html', {'page': page, 'csrs': csrs})
+
+
+
+def csr_detail(request, slug):
+    object_list = Csr.published.all()
+    # print(object_list)
+    csr = Csr.objects.get(slug=slug)
+    return render(request, 'webapp/post.html', {'csr': csr, 'csrs': object_list })
 
 
 def signup(request):

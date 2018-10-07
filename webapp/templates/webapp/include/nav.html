@@ -4,7 +4,7 @@
 <div class="menu_holder">
     <div class="inner_holder">
         <div class="text-logo">
-            <img src="{% static 'framework/img/logo_fff.png' %}" alt="Adiva Graphics" class="img-fluid" />
+            <img src="{% static 'web/framework/img/logo_fff.png' %}" alt="Adiva Graphics" class="img-fluid" />
         </div>
         <div class="call_extra">
             <i class="fa fa-fw fa-envelope-o" aria-hidden="true"></i>
@@ -16,15 +16,15 @@
                     <li class="{% if url_name == 'index' %}current-menu-item current_page_item{% endif %}">
                         <a href="{% url 'index' %}">Ground 1.0</a> <sub>Home</sub>
                     </li>
-                    <li class="{% if url_name == 'bio' %}current-menu-item current_page_item{% endif %}">
+                    <!-- <li class="{% if url_name == 'bio' %}current-menu-item current_page_item{% endif %}">
                             <a href="{% url 'bio' %}" >411 On Us</a><sub>BIO</sub>
-                    </li>
+                    </li> -->
                     <li class="{% if url_name == 'mindset' %}current-menu-item current_page_item{% endif %}">
                             <a href="{% url 'mindset' %}">Mindset</a><sub>Foundation</sub>
                     </li>
-                     <li class="{% if url_name == 'life' %}current-menu-item current_page_item{% endif %}">
-                            <a href="{% url 'life' %}">Life at Adiva</a><sub>Adiva Family</sub>
-                    </li> 
+                    <li class="{% if url_name == 'csr_list' %}current-menu-item current_page_item{% endif %}">
+                        <a href="{% url 'csr_list' %}">CSR</a><sub>Activity</sub>
+                    </li>
                     <li class="{% if url_name == 'contact' %}current-menu-item current_page_item{% endif %}">
                         <a href="{% url 'contact' %}">Get in Touch</a> <sub>Contact</sub>
                     </li>

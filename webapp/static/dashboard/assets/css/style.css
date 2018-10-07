@@ -1536,7 +1536,7 @@ File: Components
   margin-bottom: 5px;
 }
 .panel .panel-body {
-  padding: 1%;
+  padding: 0%;
 }
 .panel-heading {
   border: none !important;
@@ -3106,7 +3106,7 @@ Invoice
 File: Menu
 */
 .topbar {
-  background: #ffffff;
+  background: #323c48;
   left: 0;
   position: fixed;
   right: 0;
@@ -3114,7 +3114,7 @@ File: Menu
   z-index: 999;
 }
 .topbar .topbar-left {
-  background-color: #ffffff;
+  background-color: #323c48;
   float: left;
   height: 70px;
   position: relative;
